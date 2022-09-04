@@ -1,0 +1,2 @@
+# kubernetes-privatenet-hello-contract
+kubernetes上に構築したブロックチェーンにデプロイするコントラクト
