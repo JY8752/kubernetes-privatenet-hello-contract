@@ -4,7 +4,6 @@ import (
 	"JY8752/kubernetes-privatenet-hello-contract/env"
 	"JY8752/kubernetes-privatenet-hello-contract/hello"
 
-	// "context"
 	"fmt"
 	"log"
 
@@ -14,8 +13,6 @@ import (
 )
 
 func main() {
-	// ctx := context.Background()
-
 	//client
 	cl, err := ethclient.Dial(env.RpcUrl())
 	if err != nil {
@@ -34,5 +31,5 @@ func main() {
 		log.Fatalf("helloメソッドの呼び出しに失敗しました. err: %v", err)
 	}
 
-	fmt.Printf(res)
+	fmt.Println(res)
 }
