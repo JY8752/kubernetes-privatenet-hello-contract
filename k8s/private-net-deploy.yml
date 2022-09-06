@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    apps: private-net
+  name: private-net
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: private-net
+  template:
+    metadata:
+      labels:
+        app: private-net
+    spec:
+      containers:
+        - image: ghcr.io/jy8752/kubernetes-privatenet-hello-contract:main
+          name: private-net
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    app: private-net
+  name: private-net
+spec:
+  ports:
+  - name: rpc
+    port: 8545
+    nodePort: 30045
+  - name: ws
+    port: 8546
+    nodePort: 30046
+  selector:
+    app: private-net
+  type: NodePort
+status:
+  loadBalancer: {}
