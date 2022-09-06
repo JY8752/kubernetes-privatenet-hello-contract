@@ -5,7 +5,8 @@
     "eip150Block": 0,
     "eip155Block": 0,
     "eip158Block": 0,
-    "byzantiumBlock": 0
+    "byzantiumBlock": 0,
+    "constantinopleBlock": 0
   },
   "coinbase"   : "0x0000000000000000000000000000000000000000",
   "difficulty" : "0x1",

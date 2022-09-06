@@ -8,7 +8,14 @@ import (
 )
 
 func init() {
-	if err := godotenv.Load("../.env"); err != nil {
+	var err error
+	if os.Getenv("ENVIROMENT") == "prod" {
+		err = godotenv.Load("../.env.prod")
+	} else {
+		err = godotenv.Load("../.env")
+	}
+
+	if err != nil {
 		log.Fatalf("環境変数の読み込みに失敗しました。.envファイルを作成してください. err: %v", err)
 	}
 }
